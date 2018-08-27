@@ -5,11 +5,12 @@
   Time: 15:50
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=utf-8" language="java" %>
+
 <html>
 <head>
     <title>Bootstrap 实例</title>
-    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
@@ -34,15 +35,9 @@
             </div>
 
             <div>
-                <%--<button type="submit" class="btn btn-success" >提交</button>--%>
                 <input type="submit" class="btn btn-success" value="提交">
             </div>
         </form>
-
-        <%--<form action="/leave" method="post">
-            <input name="leaveUsername" type="text" value="姓名">
-            <input type="submit" value="提交">
-        </form>--%>
     </div>
 
 

@@ -7,6 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
+
 
 /**
  * @ClassName LeaveController
@@ -21,8 +24,9 @@ public class LeaveController {
     private LeaveService leaveService;
 
     @RequestMapping(value = "leave")
-    public String addLeave(Leave leave){
+    public String addLeave(HttpServletRequest request, Leave leave, Model model) throws IOException {
         System.out.println(leave.getLeaveName());
+        model.addAttribute("leaveName",leave.getLeaveName());
         leaveService.addLeave(leave);
         return "success";
     }

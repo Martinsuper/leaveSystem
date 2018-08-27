@@ -20,11 +20,10 @@ public class leaveTest {
         SqlSession openSession = sqlSessionFactory.openSession(true);
 
         try{
-
-            Leave leave = new Leave("Martin","hello");
+            Leave leave = new Leave("Martin","snow day is today!");
 
             leaveMapper mapper = openSession.getMapper(leaveMapper.class);
-//            mapper.insertLeave(leave);
+            mapper.insertLeave(leave);
 //            openSession.commit();
             List<Leave> leave1 = mapper.queryAll();
             System.out.println(leave1);

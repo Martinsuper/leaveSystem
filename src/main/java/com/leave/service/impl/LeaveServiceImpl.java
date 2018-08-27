@@ -6,6 +6,8 @@ import com.leave.service.LeaveService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
+
 /**
  * @ClassName LeaveServiceImpl
  * @Description
@@ -19,7 +21,7 @@ public class LeaveServiceImpl implements LeaveService {
     private LeaveDao leaveDao;
 
     @Override
-    public void addLeave(Leave leave) {
+    public void addLeave(Leave leave) throws IOException {
         leaveDao.addLeave(leave);
 
     }
