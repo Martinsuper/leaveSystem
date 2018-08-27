@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.leave.dao.leaveMapper">
+    <insert id="insertLeave" parameterType="com.leave.po.Leave">
+        insert into `leave` (leave_name, leave_text) values (#{leaveName},#{leaveText});
+    </insert>
+    <select id="queryLeaveById" resultType="com.leave.po.Leave">
+        select leave_name as leaveName,
+        leave_text as leaveText
+        from `leave`
+        where id = #{id}
+    </select>
+
+    <select id="queryAll" resultType="com.leave.po.Leave">
+        select *
+        from `leave`
+    </select>
+</mapper>

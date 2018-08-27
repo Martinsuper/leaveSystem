@@ -11,6 +11,14 @@ public class Leave {
     private String leaveName;
     private String leaveText;
 
+    public Leave() {
+    }
+
+    public Leave(String leaveName, String leaveText) {
+        this.leaveName = leaveName;
+        this.leaveText = leaveText;
+    }
+
     public Long getId() {
         return id;
     }
@@ -33,5 +41,14 @@ public class Leave {
 
     public void setLeaveText(String leaveText) {
         this.leaveText = leaveText;
+    }
+
+    @Override
+    public String toString() {
+        return "Leave{" +
+                "id=" + id +
+                ", leaveName='" + leaveName + '\'' +
+                ", leaveText='" + leaveText + '\'' +
+                '}';
     }
 }
