@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.util.List;
 
 
 /**
@@ -24,10 +25,12 @@ public class LeaveController {
     private LeaveService leaveService;
 
     @RequestMapping(value = "leave")
-    public String addLeave(HttpServletRequest request, Leave leave, Model model) throws IOException {
+    public String addLeave(Leave leave, Model model) throws IOException {
         System.out.println(leave.getLeaveName());
-        model.addAttribute("leaveName",leave.getLeaveName());
         leaveService.addLeave(leave);
+        List<Leave> leaveList = leaveService.queryAll();
+        model.addAttribute("queryAll",leaveList);
+        leaveService.leaveOutPut(leaveList);
         return "success";
     }
 }

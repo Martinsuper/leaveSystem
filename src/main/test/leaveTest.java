@@ -23,7 +23,7 @@ public class leaveTest {
             Leave leave = new Leave("Martin","snow day is today!");
 
             leaveMapper mapper = openSession.getMapper(leaveMapper.class);
-            mapper.insertLeave(leave);
+            mapper.addLeave(leave);
 //            openSession.commit();
             List<Leave> leave1 = mapper.queryAll();
             System.out.println(leave1);
