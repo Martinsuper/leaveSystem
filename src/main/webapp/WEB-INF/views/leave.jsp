@@ -9,7 +9,7 @@
 
 <html>
 <head>
-    <title>Bootstrap 实例</title>
+    <title>信息导入系统</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
