@@ -8,4 +8,5 @@ public interface leaveMapper {
     public void addLeave(Leave leave);
     public Leave queryLeaveById(Integer id);
     public List<Leave> queryAll();
+    public void deleteLeave();
 }

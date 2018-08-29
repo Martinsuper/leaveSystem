@@ -18,4 +18,13 @@
         from `leave`
     </select>
 
+    <!--<delete id="deleteLeave" parameterType="com.leave.po.Leave">-->
+        <!--truncate table `leave`-->
+    <!--</delete>-->
+
+    <update id="deleteLeave" parameterType="com.leave.po.Leave">
+        truncate table `leave`
+    </update>
+
+
 </mapper>

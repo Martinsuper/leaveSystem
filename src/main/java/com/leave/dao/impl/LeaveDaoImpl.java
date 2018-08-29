@@ -9,7 +9,6 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
-import org.apache.poi.ss.usermodel.IndexedColors;
 import org.apache.poi.xssf.streaming.SXSSFRow;
 import org.apache.poi.xssf.streaming.SXSSFSheet;
 import org.apache.poi.xssf.streaming.SXSSFWorkbook;
@@ -65,9 +64,24 @@ public class LeaveDaoImpl implements LeaveDao {
         }
     }
 
+    @Override
+    public void deleteLeave() throws IOException {
+        String resource = "mybatis-config.xml";
+        InputStream inputStream = Resources.getResourceAsStream(resource);
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+        SqlSession openSession = sqlSessionFactory.openSession(true);
+
+        try{
+            leaveMapper mapper = openSession.getMapper(leaveMapper.class);
+            mapper.deleteLeave();
+        }finally {
+            openSession.close();
+        }
+    }
+
 
     @Override
-    public void leaveOutPut(List<Leave> leaveList) throws IOException {
+    public void leaveOutPut(List<Leave> leaveList, String outPutFileName) throws IOException {
         SXSSFWorkbook workbook = new SXSSFWorkbook();
         SXSSFSheet sheet = (SXSSFSheet) workbook.createSheet("请假信息收集");
         sheet.setColumnWidth(2,50*256);
@@ -86,12 +100,22 @@ public class LeaveDaoImpl implements LeaveDao {
 
         for(int i=0; i<leaveList.size(); i++){
             SXSSFRow row = (SXSSFRow) sheet.createRow(i+1);
-            row.createCell(0).setCellValue(leaveList.get(i).getId());
-            row.createCell(1).setCellValue(leaveList.get(i).getLeaveName());
+            XSSFCellStyle newstyle = (XSSFCellStyle) workbook.createCellStyle();
+            newstyle.setAlignment(CellStyle.ALIGN_CENTER);
+
+            Cell cell0 = row.createCell(0);
+            cell0.setCellValue(leaveList.get(i).getId());
+            cell0.setCellStyle(newstyle);
+
+            cell0 = row.createCell(1);
+            cell0.setCellValue(leaveList.get(i).getLeaveName());
+            cell0.setCellStyle(newstyle);
+
             row.createCell(2).setCellValue(leaveList.get(i).getLeaveText());
         }
-        FileOutputStream fileOutputStream = new FileOutputStream("D:\\leave.xlsx");
+        FileOutputStream fileOutputStream = new FileOutputStream(outPutFileName);
         workbook.write(fileOutputStream);
         fileOutputStream.close();
     }
+
 }

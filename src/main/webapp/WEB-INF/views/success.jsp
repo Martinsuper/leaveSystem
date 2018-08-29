@@ -28,5 +28,7 @@
         </tr>
     </c:forEach>
 </table>
+    <a href="/delete">清空数据库，索引从0开始自增！</a><br/>
+    <a href="/downLeave">下载</a>
 </body>
 </html>

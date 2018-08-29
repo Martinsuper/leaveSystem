@@ -33,11 +33,12 @@ public class LeaveServiceImpl implements LeaveService {
     }
 
     @Override
-    public void leaveOutPut(List<Leave> leaveList) throws IOException {
-        leaveDao.leaveOutPut(leaveList);
-        System.out.println("这里是Service层");
-        for(int i=0; i<leaveList.size();i++){
-            System.out.println(leaveList.get(i));
-        }
+    public void leaveOutPut(List<Leave> leaveList, String outPutFileName) throws IOException {
+        leaveDao.leaveOutPut(leaveList,outPutFileName);
+    }
+
+    @Override
+    public void deleteLeave() throws IOException {
+        leaveDao.deleteLeave();
     }
 }
