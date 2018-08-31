@@ -83,4 +83,11 @@ public class LeaveController {
         return entity;
     }
 
+    @RequestMapping("/admin")
+    public String adminPage(Model model) throws IOException {
+        List<Leave> leaveList = leaveService.queryAll();
+        model.addAttribute("leaveList",leaveList);
+        return "adminPage";
+    }
+
 }

@@ -10,25 +10,13 @@
 <html>
 <head>
     <title>Title</title>
+    <%--<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"--%>
+          <%--integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"--%>
+          <%--crossorigin="anonymous">--%>
 </head>
 <body>
-    <h1>success</h1>
+<h1 align="center">数据插入成功！</h1>
 
 
-
-<table>
-    <tr>
-        <th>姓名</th>
-        <th>请假原因</th>
-    </tr>
-    <c:forEach items="${queryAll}" var="leave">
-        <tr>
-            <th>${leave.leaveName}</th>
-            <th>${leave.leaveText}</th>
-        </tr>
-    </c:forEach>
-</table>
-    <a href="/delete">清空数据库，索引从0开始自增！</a><br/>
-    <a href="/downLeave">下载</a>
 </body>
 </html>
