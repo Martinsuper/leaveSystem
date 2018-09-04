@@ -25,7 +25,7 @@
     </div>
 
     <div class="row" align="center">
-        <form action="/leave/admin" id = "myform" method="post">
+        <form action="/leave/leave" id = "myform" method="post">
             <input type="text" name="leaveName" class="form-control" style="height:40px;width:450px"
                    placeholder="请假人姓名">
             <div class="panel panel-info" style="width: 450px">
@@ -36,7 +36,7 @@
             </div>
 
             <div>
-                <input type="submit" class="btn btn-success"  onclick="login()" value="提交">
+                <input type="submit" class="btn btn-success" value="提交">
             </div>
         </form>
     </div>
@@ -44,26 +44,6 @@
 
 </div>
 
-<script>
-    function login() {
-        $.ajax({
-            //几个参数需要注意一下
-            type: "POST",//方法类型
-            dataType: "json",//预期服务器返回的数据类型
-            url: "/leave/leave" ,//url
-            data: $('#myform').serialize(),
-            success: function (result) {
-                console.log(result);//打印服务端返回的数据(调试用)
-                if (result.resultCode == 200) {
-                    alert("SUCCESS");
-                }
-                ;
-            },
-            error : function() {
-                alert("异常！");
-            }
-        });
-    }
-</script>
+
 </body>
 </html>

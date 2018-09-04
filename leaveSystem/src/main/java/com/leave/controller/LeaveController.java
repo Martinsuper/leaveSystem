@@ -51,12 +51,13 @@ public class LeaveController {
      * @throws IOException
      */
     @RequestMapping(value = "leave")
-    public void addLeave(Leave leave, Model model) throws IOException {
+    public String addLeave(Leave leave, Model model) throws IOException {
         leaveService.addLeave(leave);
         /*List<Leave> leaveList = leaveService.queryAll();
         model.addAttribute("queryAll",leaveList);
-        leaveService.leaveOutPut(leaveList,"请假人名单.xlsx");
-        return "success";*/
+        leaveService.leaveOutPut(leaveList,"请假人名单.xlsx");*/
+
+        return "success";
     }
 
 
